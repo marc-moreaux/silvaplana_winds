@@ -13,6 +13,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,17 +30,11 @@ jobs:
         run: pip install pandas wget
       - name: Run code to DL files
         run: python src/merge_measurements.py
-        
-      - name: switching from HTTPS to SSH
-        run: git remote set-url origin https://github.com/marc-moreaux/silvaplana_winds.git
-      - name: check for changes
-        run: git status
-      - name: stage changed files
-        run: git add db/*
-      - name: commit changed files
-        run: git commit -m "Auto updating csv files"
-      - name: fetch from master
-        run: git fetch origin master
-      - name: push code to master
-        run: git push origin HEAD:master
 
+      - name: Commit DB
+        run: |
+          git config --global user.name 'Marc Automated Action'
+          git config --global user.email 'Marc@users.noreply.github.com'
+          git add db/*
+          git commit -m "Automated DB update"
+          git push
