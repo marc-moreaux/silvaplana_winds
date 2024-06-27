@@ -23,10 +23,13 @@ jobs:
         run : |
           pwd
           ls
+      - name: Install dependencies
+        run: pip install pandas wget
       - name: Run code to DL files
-        run: python src/merge_measurements.py        
+        run: python src/merge_measurements.py
+        
       - name: switching from HTTPS to SSH
-        run: git remote set-url origin ${{ secrets.ssh }}
+        run: git remote set-url origin https://github.com/marc-moreaux/silvaplana_winds.git
       - name: check for changes
         run: git status
       - name: stage changed files
