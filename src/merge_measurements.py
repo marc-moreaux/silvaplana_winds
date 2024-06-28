@@ -12,7 +12,8 @@ class MeasurementReader():
             'pressure_qnh': 'Pressure hPa',
             'pressure_qfe': 'Pressure hPa',
             'temperature': 'Temperature °C',
-            'wind': 'Wind direction °',
+            'wind_direction': 'Wind direction °',
+            'wind_speed': 'Wind km/h',
             'sunshine': 'Sunshine min',
             'dew_point': 'Dew point °C',
         }[measurement]
@@ -20,7 +21,8 @@ class MeasurementReader():
             'pressure_qnh': 'https://data.geo.admin.ch/ch.meteoschweiz.messwerte-luftdruck-qnh-10min/ch.meteoschweiz.messwerte-luftdruck-qnh-10min_en.csv',
             'pressure_qfe': 'https://data.geo.admin.ch/ch.meteoschweiz.messwerte-luftdruck-qfe-10min/ch.meteoschweiz.messwerte-luftdruck-qfe-10min_en.csv',
             'temperature': 'https://data.geo.admin.ch/ch.meteoschweiz.messwerte-lufttemperatur-10min/ch.meteoschweiz.messwerte-lufttemperatur-10min_en.csv',
-            'wind': 'https://data.geo.admin.ch/ch.meteoschweiz.messwerte-windgeschwindigkeit-kmh-10min/ch.meteoschweiz.messwerte-windgeschwindigkeit-kmh-10min_en.csv',
+            'wind_direction': 'https://data.geo.admin.ch/ch.meteoschweiz.messwerte-windgeschwindigkeit-kmh-10min/ch.meteoschweiz.messwerte-windgeschwindigkeit-kmh-10min_en.csv',
+            'wind_speed': 'https://data.geo.admin.ch/ch.meteoschweiz.messwerte-windgeschwindigkeit-kmh-10min/ch.meteoschweiz.messwerte-windgeschwindigkeit-kmh-10min_en.csv',
             'sunshine': 'https://data.geo.admin.ch/ch.meteoschweiz.messwerte-sonnenscheindauer-10min/ch.meteoschweiz.messwerte-sonnenscheindauer-10min_en.csv',
             'dew_point': 'https://data.geo.admin.ch/ch.meteoschweiz.messwerte-taupunkt-10min/ch.meteoschweiz.messwerte-taupunkt-10min_en.csv',
         }[measurement]
@@ -111,5 +113,6 @@ MeasurementReader('dew_point').update_db()
 MeasurementReader('pressure_qnh').update_db()
 MeasurementReader('pressure_qfe').update_db()
 MeasurementReader('temperature').update_db()
-MeasurementReader('wind').update_db()
+MeasurementReader('wind_direction').update_db()
+MeasurementReader('wind_speed').update_db()
 MeasurementReader('sunshine').update_db()
